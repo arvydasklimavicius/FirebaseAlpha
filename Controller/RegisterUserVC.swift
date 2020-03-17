@@ -1,11 +1,12 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
-
+class RegisterUserVC: UIViewController {
     //Outlets
+    @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var confirmPassTxt: UITextField!
 
     //Variables
 
@@ -13,22 +14,15 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
     }
-    @IBAction func loginTapped(_ sender: Any) {
+    @IBAction func registerTapped(_ sender: Any) {
 
     }
-
     @IBAction func createNewUserTapped(_ sender: Any) {
 
     }
-
-    @IBAction func loginWithFacebookTapped(_ sender: Any) {
-
-    }
-
-    @IBAction func forgotPswTapped(_ sender: Any) {
+    @IBAction func linkWithFcbTapped(_ sender: Any) {
         
     }
 
 
 }
-
