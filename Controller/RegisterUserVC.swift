@@ -1,5 +1,6 @@
 
 import UIKit
+import Firebase
 
 class RegisterUserVC: UIViewController {
     //Outlets
@@ -15,13 +16,20 @@ class RegisterUserVC: UIViewController {
 
     }
     @IBAction func registerTapped(_ sender: Any) {
-
+        guard let email = emailTxt.text , email.isNotEmpty,
+            let password = passwordTxt.text , password.isNotEmpty else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            }
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
-    @IBAction func createNewUserTapped(_ sender: Any) {
-
-    }
+    
     @IBAction func linkWithFcbTapped(_ sender: Any) {
-        
+
     }
 
 

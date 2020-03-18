@@ -1,5 +1,6 @@
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
@@ -14,10 +15,21 @@ class LoginVC: UIViewController {
 
     }
     @IBAction func loginTapped(_ sender: Any) {
+        guard let email = emailTxt.text, email.isNotEmpty,
+            let password = passwordTxt.text, password.isNotEmpty else { return }
+
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+
 
     }
 
     @IBAction func createNewUserTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toRegister", sender: self)
 
     }
 
@@ -26,7 +38,10 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func forgotPswTapped(_ sender: Any) {
-        
+        let forgotPswVC = ResetPasswordVC()
+        forgotPswVC.modalPresentationStyle = .overCurrentContext
+        forgotPswVC.modalTransitionStyle = .crossDissolve
+        present(forgotPswVC, animated: true, completion: nil)
     }
 
 
