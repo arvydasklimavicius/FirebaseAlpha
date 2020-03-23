@@ -160,7 +160,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3zu-Qh-f3U">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3zu-Qh-f3U">
                                 <rect key="frame" x="361" y="180.5" width="25" height="24"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -168,7 +168,7 @@
                                     <constraint firstAttribute="height" constant="25" id="z6q-1c-PD5"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iww-M2-0X9">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iww-M2-0X9">
                                 <rect key="frame" x="361" y="234.5" width="25" height="24"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -192,7 +192,9 @@
                     <navigationItem key="navigationItem" id="IkA-xf-cb3"/>
                     <connections>
                         <outlet property="confirmPassTxt" destination="CHd-5g-xb0" id="XTF-gT-MhW"/>
+                        <outlet property="confirmPswCheckImg" destination="iww-M2-0X9" id="KAh-hP-Vfz"/>
                         <outlet property="emailTxt" destination="I0d-1c-2wf" id="cbD-3f-Hir"/>
+                        <outlet property="passwordCheckImg" destination="3zu-Qh-f3U" id="1A3-e5-xim"/>
                         <outlet property="passwordTxt" destination="MPe-rW-gWx" id="s61-Qv-HvZ"/>
                         <outlet property="usernameTxt" destination="PKI-UF-jZf" id="vU7-IB-kH4"/>
                     </connections>
