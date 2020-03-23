@@ -20,7 +20,9 @@ class RegisterUserVC: UIViewController {
             let password = passwordTxt.text , password.isNotEmpty else { return }
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
+                self.handleFireAuthError(error)
                 debugPrint(error.localizedDescription)
+                return
             }
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 self.dismiss(animated: true, completion: nil)

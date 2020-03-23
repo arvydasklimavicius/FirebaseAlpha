@@ -20,7 +20,9 @@ class LoginVC: UIViewController {
 
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
+                self.handleFireAuthError(error)
                 debugPrint(error.localizedDescription)
+                return
             }
             self.dismiss(animated: true, completion: nil)
         }
