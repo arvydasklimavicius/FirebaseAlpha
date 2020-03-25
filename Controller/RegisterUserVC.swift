@@ -49,17 +49,31 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
     @IBAction func registerTapped(_ sender: Any) {
         guard let email = emailTxt.text , email.isNotEmpty,
             let password = passwordTxt.text , password.isNotEmpty else { return }
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            if let error = error {
-                self.handleFireAuthError(error)
-                debugPrint(error.localizedDescription)
-                return
-            }
-            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                self.dismiss(animated: true, completion: nil)
-            }
+
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        guard let user = Auth.auth().currentUser else { return }
+
+        user.link(with: credential) { (user, error) in
+            self.dismiss(animated: true, completion: nil)
         }
     }
+
+//        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+//            if let error = error {
+//                self.handleFireAuthError(error)
+//                debugPrint(error.localizedDescription)
+//                return
+//            }
+//            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+//
+//            Auth.auth().signIn(with: credential) { (user, error) in
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//        }
+//    }
     
     @IBAction func linkWithFcbTapped(_ sender: Any) {
 

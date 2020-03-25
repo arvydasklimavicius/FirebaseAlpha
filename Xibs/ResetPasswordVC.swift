@@ -15,6 +15,8 @@ class ResetPasswordVC: UIViewController {
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
+                self.handleFireAuthError(error)
+                return
             }
             self.dismiss(animated: true, completion: nil)
         }
