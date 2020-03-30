@@ -1,6 +1,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class LoginVC: UIViewController {
 
@@ -9,6 +10,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
 
     //Variables
+    let loginManager = LoginManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,18 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func loginWithFacebookTapped(_ sender: Any) {
+        loginManager.logIn(permissions: ["email"], from: self) { (result, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            } else if result?.isCancelled ?? true {
+                //Do something
+            } else {
+
+            }
+        }
+    }
+
+    func signinFirebaseFacebook() {
 
     }
 
