@@ -2,6 +2,7 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import FirebaseFirestore
 
 class LoginVC: UIViewController {
 
@@ -44,13 +45,60 @@ class LoginVC: UIViewController {
             } else if result?.isCancelled ?? true {
                 //Do something
             } else {
-
+                self.signinFirebaseFacebook()
             }
         }
     }
 
     func signinFirebaseFacebook() {
+        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        Auth.auth().signIn(with: credential) { (result, error) in
+            if let isNewUser = result?.additionalUserInfo?.isNewUser {
+                if isNewUser {
+                    self.handleNewUser()
+                } else {
 
+                }
+            }
+        }
+    }
+
+    func handleNewUser() {
+        guard let user = Auth.auth().currentUser else { return }
+        //let newUser = User()
+        var userData = [String: Any]()
+        userData = [
+            "email": "",
+            "username": "",
+            "avatarUrl": "",
+            "hasSetupAccount": false,
+            "isGuest": false
+
+        ]
+
+        Firestore.firestore().collection("users").document(user.uid).setData(userData) { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.handleFireAuthError(error)
+                return
+            }
+            self.presentFirstTimeAlert()
+        }
+
+        
+    }
+
+    func presentFirstTimeAlert() {
+        let alert = UIAlertController(title: "Welcome!", message: "Look's like you are new here. Let's get you set up", preferredStyle: .alert)
+        let notNow = UIAlertAction(title: "Not Now", style: .cancel) { (alert) in
+
+        }
+        let okActioin = UIAlertAction(title: "Ok", style: .default) { (alert) in
+            self.performSegue(withIdentifier: "toRegister", sender: self)
+        }
+        alert.addAction(notNow)
+        alert.addAction(okActioin)
+        present(alert, animated: true, completion: nil)
     }
 
     @IBAction func forgotPswTapped(_ sender: Any) {
