@@ -1,6 +1,8 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
+import Kingfisher
 
 class RegisterUserVC: UIViewController, UITextFieldDelegate {
     //Outlets
@@ -10,11 +12,20 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmPassTxt: UITextField!
     @IBOutlet weak var passwordCheckImg: UIImageView!
     @IBOutlet weak var confirmPswCheckImg: UIImageView!
+    @IBOutlet weak var fbAvatar: UIImageView!
 
     //Variables
+    var firstTimeFbLogin = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if firstTimeFbLogin {
+            fetchFacebookData()
+        }
+
+    }
+
+    func setupView() {
         confirmPassTxt.delegate = self
         passwordTxt.delegate = self
 
@@ -23,6 +34,33 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
         passwordTxt.addTarget(self, action: #selector(textFieldDidChangeSelection(_:)),
                               for: UIControl.Event.editingChanged)
 
+    }
+
+    func fetchFacebookData() {
+        let request = GraphRequest(graphPath: "me", parameters:
+            ["fields": "id, name, first_name, last_name, email, picture.type(large)" ],
+                                   httpMethod: HTTPMethod(rawValue: "GET"))
+        request.start { (connection, result, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            guard let dictionary = result as? [String: Any] else { return }
+            guard let firstName = dictionary["first_name"] as? String,
+                let lastName = dictionary["last_name"] as? String,
+                let email = dictionary["email"] as? String else { return }
+            guard let pictureObject = dictionary["picture"] as? [String: Any],
+                let pictureData = pictureObject["data"] as? [String: Any],
+                let urlString = pictureObject["url"] as? String else { return }
+
+            let url = URL(string: urlString)
+            let image = UIImage(named: "Placeholder")
+            self.fbAvatar.kf.setImage(with: url, placeholder: image)
+
+            self.emailTxt.text = email
+            self.usernameTxt.text = firstName
+
+        }
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {

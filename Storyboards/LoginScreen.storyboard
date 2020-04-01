@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -176,13 +176,22 @@
                                     <constraint firstAttribute="width" constant="25" id="gTY-MJ-xTa"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOp-Eo-6fc">
+                                <rect key="frame" x="157" y="419.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="8T8-QM-ltv"/>
+                                    <constraint firstAttribute="width" constant="100" id="V6j-CN-fnr"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iww-M2-0X9" firstAttribute="centerY" secondItem="CHd-5g-xb0" secondAttribute="centerY" id="0Bw-vE-ESj"/>
                             <constraint firstItem="Y2M-FJ-jqt" firstAttribute="leading" secondItem="gaj-xd-4sp" secondAttribute="leading" constant="20" id="4iH-Xa-2eC"/>
                             <constraint firstItem="gaj-xd-4sp" firstAttribute="trailing" secondItem="Y2M-FJ-jqt" secondAttribute="trailing" constant="20" id="9dy-3s-Vbj"/>
+                            <constraint firstItem="nOp-Eo-6fc" firstAttribute="centerX" secondItem="UJc-9E-HX5" secondAttribute="centerX" id="EWW-lZ-g5f"/>
                             <constraint firstItem="Y2M-FJ-jqt" firstAttribute="top" secondItem="gaj-xd-4sp" secondAttribute="top" constant="20" id="FJM-va-q1v"/>
+                            <constraint firstItem="nOp-Eo-6fc" firstAttribute="top" secondItem="Y2M-FJ-jqt" secondAttribute="bottom" constant="48" id="Kg2-U8-bnk"/>
                             <constraint firstItem="3zu-Qh-f3U" firstAttribute="trailing" secondItem="MPe-rW-gWx" secondAttribute="trailing" constant="-8" id="Mm5-RQ-eww"/>
                             <constraint firstItem="3zu-Qh-f3U" firstAttribute="centerY" secondItem="MPe-rW-gWx" secondAttribute="centerY" id="bdT-WB-ReB"/>
                             <constraint firstItem="iww-M2-0X9" firstAttribute="trailing" secondItem="CHd-5g-xb0" secondAttribute="trailing" constant="-8" id="mwZ-Lg-ajU"/>
@@ -194,6 +203,7 @@
                         <outlet property="confirmPassTxt" destination="CHd-5g-xb0" id="XTF-gT-MhW"/>
                         <outlet property="confirmPswCheckImg" destination="iww-M2-0X9" id="KAh-hP-Vfz"/>
                         <outlet property="emailTxt" destination="I0d-1c-2wf" id="cbD-3f-Hir"/>
+                        <outlet property="fbAvatar" destination="nOp-Eo-6fc" id="atg-HV-ZDh"/>
                         <outlet property="passwordCheckImg" destination="3zu-Qh-f3U" id="1A3-e5-xim"/>
                         <outlet property="passwordTxt" destination="MPe-rW-gWx" id="s61-Qv-HvZ"/>
                         <outlet property="usernameTxt" destination="PKI-UF-jZf" id="vU7-IB-kH4"/>
@@ -205,6 +215,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.shield.fill" catalog="system" width="64" height="60"/>
+        <image name="checkmark.shield.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
