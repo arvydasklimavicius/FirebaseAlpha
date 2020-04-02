@@ -4,6 +4,7 @@ import Firebase
 import FBSDKLoginKit
 import Kingfisher
 
+
 class RegisterUserVC: UIViewController, UITextFieldDelegate {
     //Outlets
     @IBOutlet weak var usernameTxt: UITextField!
@@ -13,15 +14,18 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordCheckImg: UIImageView!
     @IBOutlet weak var confirmPswCheckImg: UIImageView!
     @IBOutlet weak var fbAvatar: UIImageView!
+    @IBOutlet weak var linkFcbkBtn: RoundedButton!
 
     //Variables
     var firstTimeFbLogin = false
+    let loginManager = LoginManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if firstTimeFbLogin {
+        if AccessToken.current != nil {
             fetchFacebookData()
         }
+        setupView()
 
     }
 
@@ -37,6 +41,7 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
     }
 
     func fetchFacebookData() {
+        linkFcbkBtn.setTitle("Unlink Facebook Account", for: .normal)
         let request = GraphRequest(graphPath: "me", parameters:
             ["fields": "id, name, first_name, last_name, email, picture.type(large)" ],
                                    httpMethod: HTTPMethod(rawValue: "GET"))
@@ -45,6 +50,7 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
                 debugPrint(error.localizedDescription)
                 return
             }
+            print(result)
             guard let dictionary = result as? [String: Any] else { return }
             guard let firstName = dictionary["first_name"] as? String,
                 let lastName = dictionary["last_name"] as? String,
@@ -54,8 +60,8 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
                 let urlString = pictureObject["url"] as? String else { return }
 
             let url = URL(string: urlString)
-            let image = UIImage(named: "Placeholder")
-            self.fbAvatar.kf.setImage(with: url, placeholder: image)
+//            let image = UIImage(named: "Placeholder")
+            self.fbAvatar.kf.setImage(with: url)
 
             self.emailTxt.text = email
             self.usernameTxt.text = firstName
@@ -114,6 +120,21 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
 //    }
     
     @IBAction func linkWithFcbTapped(_ sender: Any) {
+        if AccessToken.current != nil {
+
+        } else {
+            loginManager.logIn(permissions: ["email"], from: self) { (result, error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    return
+                } else if result?.isCancelled ?? true {
+
+                } else {
+                    self.fetchFacebookData()
+                }
+            }
+
+        }
 
     }
 

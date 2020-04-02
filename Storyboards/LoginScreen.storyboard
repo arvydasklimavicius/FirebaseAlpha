@@ -204,6 +204,7 @@
                         <outlet property="confirmPswCheckImg" destination="iww-M2-0X9" id="KAh-hP-Vfz"/>
                         <outlet property="emailTxt" destination="I0d-1c-2wf" id="cbD-3f-Hir"/>
                         <outlet property="fbAvatar" destination="nOp-Eo-6fc" id="atg-HV-ZDh"/>
+                        <outlet property="linkFcbkBtn" destination="HYy-LG-shu" id="MFQ-xb-Mvl"/>
                         <outlet property="passwordCheckImg" destination="3zu-Qh-f3U" id="1A3-e5-xim"/>
                         <outlet property="passwordTxt" destination="MPe-rW-gWx" id="s61-Qv-HvZ"/>
                         <outlet property="usernameTxt" destination="PKI-UF-jZf" id="vU7-IB-kH4"/>

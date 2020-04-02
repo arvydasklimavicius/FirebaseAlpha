@@ -12,7 +12,7 @@ class LoginVC: UIViewController {
 
     //Variables
     let loginManager = LoginManager()
-    var firstTimeFbLogin = false
+//    var firstTimeFbLogin = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,33 +53,35 @@ class LoginVC: UIViewController {
 
     func signinFirebaseFacebook() {
         let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        Auth.auth().signIn(with: credential) { (result, error) in
-            if let isNewUser = result?.additionalUserInfo?.isNewUser {
-                if isNewUser {
-                    self.handleNewUser()
-                } else {
-                    self.handlePotentialFirstTimeFbLogin()
-                }
+        guard let user = Auth.auth().currentUser else { return }
+        user.link(with: credential) { (result, error) in
+            if let error = error {
+                self.handleFireAuthError(error)
             }
+                self.handlePotentialFirstTimeFbLogin()
         }
     }
     func handlePotentialFirstTimeFbLogin() {
         guard let user = Auth.auth().currentUser else { return }
         Firestore.firestore().collection("users").document(user.uid).getDocument { (snap, error) in
-            if let data = snap?.data() {
-                guard let hasSetup = data["hasSetupAccount"] as? Bool else { return }
-                if hasSetup {
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    self.firstTimeFbLogin = true
-                    self.presentFirstTimeAlert()
+            guard let snap = snap else { return }
+            if snap.exists {
+                if let data = snap.data() {
+                    guard let hasSetup = data["hasSetupAccount"] as? Bool else { return }
+                    if hasSetup {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        self.presentFirstTimeAlert()
+                    }
                 }
+            } else {
+                self.handleNewUser()
             }
+
         }
     }
 
     func handleNewUser() {
-        firstTimeFbLogin = true
         guard let user = Auth.auth().currentUser else { return }
         //let newUser = User()
         var userData = [String: Any]()
@@ -116,13 +118,13 @@ class LoginVC: UIViewController {
         alert.addAction(okActioin)
         present(alert, animated: true, completion: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRegister" {
-            if let destination = segue.destination as? RegisterUserVC{
-                destination.firstTimeFbLogin = firstTimeFbLogin
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toRegister" {
+//            if let destination = segue.destination as? RegisterUserVC{
+//                destination.firstTimeFbLogin = firstTimeFbLogin
+//            }
+//        }
+//    }
 
     @IBAction func forgotPswTapped(_ sender: Any) {
         let forgotPswVC = ResetPasswordVC()
