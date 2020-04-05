@@ -2,11 +2,44 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
+import CodableFirebase
 
 class HomeVC: UIViewController {
 
+    //Outlets
+    @IBOutlet weak var loginOutBtn: RoundedButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    //Variables
+    let loginManager = LoginManager()
+    var categories = [Category]()
+    var listener : ListenerRegistration!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+
+        Firestore.firestore().collection("categories").addSnapshotListener { (snapshot, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            }
+            self.categories.removeAll()
+            snapshot?.documents.forEach({ (category) in
+                do {
+                    let newCategory = try FirestoreDecoder().decode(Category.self, from: category.data())
+                    self.categories.append(newCategory)
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
+            })
+            self.collectionView.reloadData()
+        }
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { (result, error) in
                 if let error = error {
@@ -14,17 +47,47 @@ class HomeVC: UIViewController {
                 }
             }
         }
+        if let user = Auth.auth().currentUser {
+            if !user.isAnonymous {
+                loginOutBtn.setTitle("Logout", for: .normal)
+            } else {
+                loginOutBtn.setTitle("Login", for: .normal)
+            }
 
+        }
     }
+
     @IBAction func logBtnTapped(_ sender: Any) {
         guard let user = Auth.auth().currentUser else { return }
         if !user.isAnonymous {
-            try! Auth.auth().signOut()
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+            loginManager.logOut()
         }
 
         let storyboard = UIStoryboard.init(name: "LoginScreen", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: "loginVC")
         self.present(controller, animated: true, completion: nil)
     }
+
+}
+
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
+            cell.configureCell(category: categories[indexPath.item])
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+
 
 }

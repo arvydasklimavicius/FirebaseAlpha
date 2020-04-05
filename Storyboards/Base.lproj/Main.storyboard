@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,26 +20,84 @@
                                 <rect key="frame" x="20" y="808" width="374" height="34"/>
                                 <color key="backgroundColor" red="0.66170804790000004" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
-                                <state key="normal" title="Login/Logout">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="logBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zwt-7S-98S"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ig5-zw-OHx">
+                                <rect key="frame" x="0.0" y="56" width="414" height="740"/>
+                                <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e60-q6-g6U">
+                                    <size key="itemSize" width="188" height="217"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="HIb-fX-MS4" customClass="CategoryCell" customModule="FirebaseAplha" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="217"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6Eo-Zh-kVF">
+                                            <rect key="frame" x="0.0" y="0.0" width="166" height="217"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="imF-lE-1QF">
+                                                    <rect key="frame" x="20" y="21.5" width="148" height="143"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="144" id="97H-j8-Lfz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpC-Mi-XMG">
+                                                    <rect key="frame" x="23" y="185" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="imF-lE-1QF" firstAttribute="top" secondItem="6Eo-Zh-kVF" secondAttribute="top" constant="21" id="IA5-Bh-F6q"/>
+                                                <constraint firstItem="TpC-Mi-XMG" firstAttribute="centerX" secondItem="6Eo-Zh-kVF" secondAttribute="centerX" id="aHt-9P-dm6"/>
+                                                <constraint firstAttribute="trailing" secondItem="imF-lE-1QF" secondAttribute="trailing" constant="-2" id="c1f-Q1-WPM"/>
+                                                <constraint firstItem="TpC-Mi-XMG" firstAttribute="top" secondItem="imF-lE-1QF" secondAttribute="bottom" constant="20" id="dyx-vm-xzJ"/>
+                                                <constraint firstItem="TpC-Mi-XMG" firstAttribute="leading" secondItem="6Eo-Zh-kVF" secondAttribute="leading" constant="23" id="nea-LW-Mvf"/>
+                                                <constraint firstItem="imF-lE-1QF" firstAttribute="leading" secondItem="6Eo-Zh-kVF" secondAttribute="leading" constant="20" id="yTf-jU-BHe"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryImage" destination="imF-lE-1QF" id="9Mt-GN-3ab"/>
+                                            <outlet property="categoryName" destination="TpC-Mi-XMG" id="1yy-Gy-PuM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ig5-zw-OHx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CV8-NV-DBM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1bg-Qy-CAy" secondAttribute="trailing" constant="20" id="DPf-fe-u73"/>
+                            <constraint firstItem="ig5-zw-OHx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="Mgu-Jg-eOu"/>
+                            <constraint firstItem="1bg-Qy-CAy" firstAttribute="top" secondItem="ig5-zw-OHx" secondAttribute="bottom" constant="12" id="XVw-ut-KG1"/>
+                            <constraint firstItem="ig5-zw-OHx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bvA-5Y-Mhc"/>
                             <constraint firstItem="1bg-Qy-CAy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vKw-Bo-W0g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1bg-Qy-CAy" secondAttribute="bottom" constant="20" id="xn3-lK-xXL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ig5-zw-OHx" id="OOw-ON-59a"/>
+                        <outlet property="loginOutBtn" destination="1bg-Qy-CAy" id="wvV-vF-hF1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57" y="130"/>
+            <point key="canvasLocation" x="-57.971014492753625" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

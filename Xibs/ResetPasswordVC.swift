@@ -11,6 +11,12 @@ class ResetPasswordVC: UIViewController {
 
     }
     @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+
+    }
+
+    @IBAction func resetPswTapped(_ sender: Any) {
+
         guard let email = emailTxt.text else { return }
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if let error = error {
@@ -20,11 +26,6 @@ class ResetPasswordVC: UIViewController {
             }
             self.dismiss(animated: true, completion: nil)
         }
-
-    }
-
-    @IBAction func resetPswTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
 
 
