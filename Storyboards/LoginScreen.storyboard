@@ -80,11 +80,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEi-j5-LCj" customClass="RoundedButton" customModule="FirebaseAplha" customModuleProvider="target">
+                                <rect key="frame" x="20" y="808" width="374" height="34"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="To Admin Screen">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="toAdminScreenTapped:" destination="XIN-88-JcR" eventType="touchUpInside" id="sbx-Qi-ZqO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70631342801643826" green="0.68705690805479458" blue="0.76480131772876703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="WIw-bS-zOU" firstAttribute="trailing" secondItem="vEi-j5-LCj" secondAttribute="trailing" constant="20" id="MkX-VK-WwY"/>
+                            <constraint firstItem="WIw-bS-zOU" firstAttribute="bottom" secondItem="vEi-j5-LCj" secondAttribute="bottom" constant="20" id="Uex-Gq-YOs"/>
                             <constraint firstItem="WIw-bS-zOU" firstAttribute="trailing" secondItem="3s4-Wp-nX8" secondAttribute="trailing" constant="20" id="g1t-AX-8oo"/>
                             <constraint firstItem="3s4-Wp-nX8" firstAttribute="top" secondItem="WIw-bS-zOU" secondAttribute="top" constant="20" id="jfY-A1-cdv"/>
+                            <constraint firstItem="vEi-j5-LCj" firstAttribute="leading" secondItem="WIw-bS-zOU" secondAttribute="leading" constant="20" id="vyY-yp-5Uv"/>
                             <constraint firstItem="3s4-Wp-nX8" firstAttribute="leading" secondItem="WIw-bS-zOU" secondAttribute="leading" constant="20" id="yCI-PK-8OE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WIw-bS-zOU"/>

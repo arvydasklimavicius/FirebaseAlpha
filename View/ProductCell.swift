@@ -16,6 +16,10 @@ class ProductCell: UITableViewCell {
 
     func configureCell(product: Product) {
         productTitle.text = product.name
+        productDescription.text = product.description
+        if let url = URL(string: product.imageUrl) {
+            productImage.kf.setImage(with: url)
+        }
     }
 
     @IBAction func buyBtnTapped(_ sender: Any) {

@@ -133,6 +133,12 @@ class LoginVC: UIViewController {
         present(forgotPswVC, animated: true, completion: nil)
     }
 
+    @IBAction func toAdminScreenTapped(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "AdminScreen", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "adminVC")
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
+    }
 
 }
 

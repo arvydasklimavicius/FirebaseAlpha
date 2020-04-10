@@ -13,6 +13,10 @@ class CategoryCell: UICollectionViewCell {
 
     func configureCell(category: Category) {
         categoryName.text = category.name
+        if let url = URL(string: category.imageUrl) {
+            categoryImage.kf.setImage(with: url)
+        }
+        
     }
 
 }
