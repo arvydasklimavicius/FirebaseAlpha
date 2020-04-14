@@ -51,6 +51,17 @@
                                     <action selector="cancelTapped:" destination="J5S-g1-5fu" eventType="touchUpInside" id="ebI-S3-dwu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwT-Fq-Djs" customClass="RoundedButton" customModule="FirebaseAplha" customModuleProvider="target">
+                                <rect key="frame" x="20" y="746" width="374" height="34"/>
+                                <color key="backgroundColor" red="0.66170804790000004" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="Add category">
+                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCategoryTapped:" destination="J5S-g1-5fu" eventType="touchUpInside" id="Fk9-Yo-K4q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -58,7 +69,10 @@
                             <constraint firstItem="UKt-eq-tCh" firstAttribute="top" secondItem="4YI-1m-gZG" secondAttribute="bottom" constant="69" id="0XQ-Ua-cy5"/>
                             <constraint firstItem="4YI-1m-gZG" firstAttribute="top" secondItem="vao-N2-ftG" secondAttribute="bottom" constant="17" id="92q-HA-4zO"/>
                             <constraint firstItem="W6L-NP-M5y" firstAttribute="trailing" secondItem="obO-2N-M7J" secondAttribute="trailing" constant="20" id="AWH-1r-rEk"/>
+                            <constraint firstItem="YwT-Fq-Djs" firstAttribute="leading" secondItem="W6L-NP-M5y" secondAttribute="leading" constant="20" id="Evp-L5-xKP"/>
+                            <constraint firstItem="obO-2N-M7J" firstAttribute="top" secondItem="YwT-Fq-Djs" secondAttribute="bottom" constant="18" id="J8K-Lv-gLl"/>
                             <constraint firstItem="obO-2N-M7J" firstAttribute="leading" secondItem="W6L-NP-M5y" secondAttribute="leading" constant="20" id="KDV-OJ-WF5"/>
+                            <constraint firstItem="W6L-NP-M5y" firstAttribute="trailing" secondItem="YwT-Fq-Djs" secondAttribute="trailing" constant="20" id="OFx-hn-Rba"/>
                             <constraint firstItem="W6L-NP-M5y" firstAttribute="bottom" secondItem="obO-2N-M7J" secondAttribute="bottom" constant="30" id="UwT-C3-QDL"/>
                             <constraint firstItem="4YI-1m-gZG" firstAttribute="leading" secondItem="W6L-NP-M5y" secondAttribute="leading" constant="20" id="bjB-sV-jmy"/>
                             <constraint firstItem="UKt-eq-tCh" firstAttribute="centerX" secondItem="G3W-0x-piL" secondAttribute="centerX" id="k5v-8N-8Er"/>
