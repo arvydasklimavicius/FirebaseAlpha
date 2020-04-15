@@ -71,6 +71,7 @@ class HomeVC: UIViewController {
 
         let storyboard = UIStoryboard.init(name: "LoginScreen", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: "loginVC")
+//        controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
     }
 

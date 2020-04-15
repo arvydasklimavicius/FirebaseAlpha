@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r0g-VB-Yky">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ig5-zw-OHx">
-                                <rect key="frame" x="20" y="56" width="374" height="740"/>
+                                <rect key="frame" x="20" y="100" width="374" height="696"/>
                                 <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e60-q6-g6U">
                                     <size key="itemSize" width="188" height="217"/>
@@ -105,6 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YFx-c9-1yX"/>
                     <connections>
                         <outlet property="collectionView" destination="ig5-zw-OHx" id="OOw-ON-59a"/>
                         <outlet property="loginOutBtn" destination="1bg-Qy-CAy" id="wvV-vF-hF1"/>
@@ -113,18 +114,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57.971014492753625" y="129.91071428571428"/>
+            <point key="canvasLocation" x="852.17391304347836" y="129.91071428571428"/>
         </scene>
         <!--ProductsVC-->
         <scene sceneID="oL0-UY-GEr">
             <objects>
                 <viewController id="Ua5-Ct-IrY" customClass="ProductsVC" customModule="FirebaseAplha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2e-Ka-C6d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-Gf-k27">
-                                <rect key="frame" x="20" y="20" width="374" height="768"/>
+                                <rect key="frame" x="20" y="108" width="374" height="714"/>
                                 <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="productCell" rowHeight="200" id="MBh-rB-t1R" customClass="ProductCell" customModule="FirebaseAplha" customModuleProvider="target">
@@ -205,13 +206,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFK-Lx-53e">
+                                <rect key="frame" x="296" y="842" width="98" height="34"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="Add Product">
+                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="AmU-Dk-rzg" kind="show" id="USp-5q-l1F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="r4u-eh-0Io" firstAttribute="trailing" secondItem="WFK-Lx-53e" secondAttribute="trailing" constant="20" id="KQI-It-jw5"/>
                             <constraint firstItem="zO1-Gf-k27" firstAttribute="leading" secondItem="r4u-eh-0Io" secondAttribute="leading" constant="20" id="Xly-2i-7iP"/>
                             <constraint firstItem="r4u-eh-0Io" firstAttribute="trailing" secondItem="zO1-Gf-k27" secondAttribute="trailing" constant="20" id="hNp-Dm-AqC"/>
                             <constraint firstItem="zO1-Gf-k27" firstAttribute="top" secondItem="r4u-eh-0Io" secondAttribute="top" constant="20" id="mwa-mF-hur"/>
-                            <constraint firstItem="r4u-eh-0Io" firstAttribute="bottom" secondItem="zO1-Gf-k27" secondAttribute="bottom" constant="20" id="w2g-Ow-A13"/>
+                            <constraint firstAttribute="bottom" secondItem="WFK-Lx-53e" secondAttribute="bottom" constant="20" id="q03-9f-orZ"/>
+                            <constraint firstItem="r4u-eh-0Io" firstAttribute="bottom" secondItem="zO1-Gf-k27" secondAttribute="bottom" constant="40" id="w2g-Ow-A13"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r4u-eh-0Io"/>
                     </view>
@@ -222,7 +235,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cW-t8-eN2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804.34782608695662" y="132.58928571428572"/>
+            <point key="canvasLocation" x="1714.4927536231885" y="132.58928571428572"/>
+        </scene>
+        <!--Add Edit ProductVC-->
+        <scene sceneID="SY8-WT-pB4">
+            <objects>
+                <viewController id="AmU-Dk-rzg" customClass="AddEditProductVC" customModule="FirebaseAplha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qst-Lm-kGO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kow-EC-Eh3">
+                                <rect key="frame" x="158" y="842" width="98" height="34"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="Add Product">
+                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kow-EC-Eh3" firstAttribute="centerX" secondItem="qst-Lm-kGO" secondAttribute="centerX" id="Lnr-Vt-eCT"/>
+                            <constraint firstAttribute="bottom" secondItem="kow-EC-Eh3" secondAttribute="bottom" constant="20" id="Yf3-cs-crR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UqX-yx-s7a"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DTX-hl-toR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipl-lM-UuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512" y="130"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eXx-WA-aHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r0g-VB-Yky" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rz7-ez-P37">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FHp-eW-TKn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fsr-7l-IpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57.971014492753625" y="129.91071428571428"/>
         </scene>
     </scenes>
     <resources>

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3s4-Wp-nX8">
-                                <rect key="frame" x="20" y="64" width="374" height="357"/>
+                                <rect key="frame" x="20" y="108" width="374" height="357"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LogIn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tf-Vs-KWb">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="33"/>
@@ -103,6 +103,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WIw-bS-zOU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yfe-Q7-5vk"/>
                     <connections>
                         <outlet property="emailTxt" destination="yIw-eZ-l0e" id="xdi-5I-fIP"/>
                         <outlet property="passwordTxt" destination="Koq-7t-cGA" id="kbV-Je-UBm"/>
@@ -111,18 +112,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgs-6s-R0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-126" y="56"/>
+            <point key="canvasLocation" x="784.05797101449286" y="55.580357142857139"/>
         </scene>
         <!--Register UserVC-->
         <scene sceneID="jdz-pS-Xjd">
             <objects>
                 <viewController id="EZ2-So-er5" customClass="RegisterUserVC" customModule="FirebaseAplha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UJc-9E-HX5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2M-FJ-jqt">
-                                <rect key="frame" x="20" y="20" width="374" height="351.5"/>
+                                <rect key="frame" x="20" y="108" width="374" height="351.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbN-Zo-mVm">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="27.5"/>
@@ -175,7 +176,7 @@
                                 </subviews>
                             </stackView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3zu-Qh-f3U">
-                                <rect key="frame" x="361" y="180.5" width="25" height="24"/>
+                                <rect key="frame" x="361" y="268.5" width="25" height="24"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="TQg-qX-WKo"/>
@@ -183,7 +184,7 @@
                                 </constraints>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iww-M2-0X9">
-                                <rect key="frame" x="361" y="234.5" width="25" height="24"/>
+                                <rect key="frame" x="361" y="322.5" width="25" height="24"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="7Ep-Jd-G0l"/>
@@ -191,7 +192,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOp-Eo-6fc">
-                                <rect key="frame" x="157" y="419.5" width="100" height="100"/>
+                                <rect key="frame" x="157" y="507.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="8T8-QM-ltv"/>
                                     <constraint firstAttribute="width" constant="100" id="V6j-CN-fnr"/>
@@ -226,7 +227,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YH3-GH-QHX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="56"/>
+            <point key="canvasLocation" x="1568.1159420289857" y="55.580357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wkT-y6-K0U">
+            <objects>
+                <navigationController storyboardIdentifier="loginNavController" automaticallyAdjustsScrollViewInsets="NO" id="wUG-LW-Iiv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EFT-jY-9no">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XIN-88-JcR" kind="relationship" relationship="rootViewController" id="L8k-Xt-DPg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sEx-oq-6TM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126.08695652173914" y="55.580357142857139"/>
         </scene>
     </scenes>
     <resources>

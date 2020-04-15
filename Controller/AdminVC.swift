@@ -100,6 +100,7 @@ extension AdminVC: CropViewControllerDelegate, UIImagePickerControllerDelegate, 
     }
 
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        addedCategoryImage = image
         categoryImage.image = image
         cropViewController.dismiss(animated: true, completion: nil)
     }
