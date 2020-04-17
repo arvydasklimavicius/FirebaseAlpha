@@ -11,6 +11,7 @@ class ProductCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        productImage.layer.cornerRadius = 8
 
     }
 

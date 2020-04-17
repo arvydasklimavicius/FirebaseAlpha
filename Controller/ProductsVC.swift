@@ -39,6 +39,14 @@ class ProductsVC: UIViewController {
                 self.tableView.reloadData()
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddEditProduct" {
+            if let destination = segue.destination as? AddEditProductVC {
+                destination.selectedCategory = selectedCategory
+            }
+        }
+    }
    
 }
 

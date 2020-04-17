@@ -2,13 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r0g-VB-Yky">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--SuperShop-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="FirebaseAplha" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YFx-c9-1yX"/>
+                    <navigationItem key="navigationItem" title="SuperShop" id="YFx-c9-1yX"/>
                     <connections>
                         <outlet property="collectionView" destination="ig5-zw-OHx" id="OOw-ON-59a"/>
                         <outlet property="loginOutBtn" destination="1bg-Qy-CAy" id="wvV-vF-hF1"/>
@@ -213,7 +213,7 @@
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="AmU-Dk-rzg" kind="show" id="USp-5q-l1F"/>
+                                    <segue destination="AmU-Dk-rzg" kind="show" identifier="toAddEditProduct" id="USp-5q-l1F"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,16 +251,66 @@
                                 <state key="normal" title="Add Product">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addProductTapped:" destination="AmU-Dk-rzg" eventType="touchUpInside" id="Eng-sI-AKg"/>
+                                </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Aof-jr-7SS">
+                                <rect key="frame" x="20" y="108" width="374" height="81"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7w-BF-j6p">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeA-WM-Hrs">
+                                        <rect key="frame" x="0.0" y="47" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wmb-YY-ZMi">
+                                <rect key="frame" x="20" y="249" width="374" height="269.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapp to add image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUp-DQ-art">
+                                        <rect key="frame" x="109" y="0.0" width="156" height="24"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xdq-ui-QfB">
+                                        <rect key="frame" x="67" y="43.5" width="240" height="224.5"/>
+                                        <color key="tintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="7CA-E4-3PG"/>
+                                            <constraint firstAttribute="height" constant="225.5" id="oJU-qI-SgR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.70631342799999997" green="0.68705690809999997" blue="0.76480131770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UqX-yx-s7a" firstAttribute="trailing" secondItem="Aof-jr-7SS" secondAttribute="trailing" constant="20" id="1zT-OA-5fJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Wmb-YY-ZMi" secondAttribute="bottom" constant="377.5" id="22A-P1-3wM"/>
+                            <constraint firstItem="Aof-jr-7SS" firstAttribute="leading" secondItem="UqX-yx-s7a" secondAttribute="leading" constant="20" id="2S4-AO-tHK"/>
                             <constraint firstItem="kow-EC-Eh3" firstAttribute="centerX" secondItem="qst-Lm-kGO" secondAttribute="centerX" id="Lnr-Vt-eCT"/>
+                            <constraint firstItem="Wmb-YY-ZMi" firstAttribute="top" secondItem="Aof-jr-7SS" secondAttribute="bottom" constant="60" id="RDZ-bu-J5t"/>
+                            <constraint firstItem="Wmb-YY-ZMi" firstAttribute="centerX" secondItem="qst-Lm-kGO" secondAttribute="centerX" id="SbB-J4-bXg"/>
+                            <constraint firstItem="UqX-yx-s7a" firstAttribute="trailing" secondItem="Wmb-YY-ZMi" secondAttribute="trailing" constant="20" id="XIN-wt-vzE"/>
                             <constraint firstAttribute="bottom" secondItem="kow-EC-Eh3" secondAttribute="bottom" constant="20" id="Yf3-cs-crR"/>
+                            <constraint firstItem="Wmb-YY-ZMi" firstAttribute="leading" secondItem="UqX-yx-s7a" secondAttribute="leading" constant="20" id="aGi-w1-4rz"/>
+                            <constraint firstItem="Aof-jr-7SS" firstAttribute="top" secondItem="UqX-yx-s7a" secondAttribute="top" constant="20" id="iEn-RG-wBt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UqX-yx-s7a"/>
                     </view>
                     <navigationItem key="navigationItem" id="DTX-hl-toR"/>
+                    <connections>
+                        <outlet property="addEditProductImage" destination="Xdq-ui-QfB" id="99S-Ny-gGD"/>
+                        <outlet property="productDescriptionTxt" destination="JeA-WM-Hrs" id="T0m-0T-V0A"/>
+                        <outlet property="productNameTxt" destination="z7w-BF-j6p" id="6tc-je-zYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipl-lM-UuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,5 +339,6 @@
     </scenes>
     <resources>
         <image name="appleWatch" width="213.33332824707031" height="109"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>

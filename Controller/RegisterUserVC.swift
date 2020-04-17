@@ -50,7 +50,6 @@ class RegisterUserVC: UIViewController, UITextFieldDelegate {
                 debugPrint(error.localizedDescription)
                 return
             }
-            print(result)
             guard let dictionary = result as? [String: Any] else { return }
             guard let firstName = dictionary["first_name"] as? String,
                 let lastName = dictionary["last_name"] as? String,
