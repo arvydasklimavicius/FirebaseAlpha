@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsVC" customModule="FirebaseAplha" customModuleProvider="target">
+            <connections>
+                <outlet property="productDescription" destination="uMO-Oz-Kxp" id="CH7-Aa-FjF"/>
+                <outlet property="productImage" destination="LM9-t2-rNK" id="kzW-QM-MjJ"/>
+                <outlet property="productTitle" destination="kla-XM-8XB" id="FcU-nQ-MPA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ay-MJ-b9A">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BJb-Cb-xcj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-PQ-YqN" customClass="RoundedView" customModule="FirebaseAplha" customModuleProvider="target">
+                                <rect key="frame" x="20" y="250.5" width="374" height="395"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="SK4-fp-54C">
+                                        <rect key="frame" x="12" y="12" width="350" height="371"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleWatch" translatesAutoresizingMaskIntoConstraints="NO" id="LM9-t2-rNK">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="lGr-YY-zaw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kla-XM-8XB">
+                                                <rect key="frame" x="0.0" y="212" width="350" height="27.5"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMO-Oz-Kxp">
+                                                <rect key="frame" x="0.0" y="251.5" width="350" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWE-iR-6Yu" customClass="RoundedButton" customModule="FirebaseAplha" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="287" width="350" height="36"/>
+                                                <color key="backgroundColor" red="0.66170804790000004" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                <state key="normal" title="Add to Cart">
+                                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addToCartTapped:" destination="-1" eventType="touchUpInside" id="HQr-Bq-t8t"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgO-8O-01l" customClass="RoundedButton" customModule="FirebaseAplha" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="335" width="350" height="36"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                <state key="normal" title="Keep Shopping">
+                                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="keepShoppingTapped:" destination="-1" eventType="touchUpInside" id="A0W-ek-lIV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SK4-fp-54C" secondAttribute="trailing" constant="12" id="95w-Ht-BYM"/>
+                                    <constraint firstItem="SK4-fp-54C" firstAttribute="leading" secondItem="mWa-PQ-YqN" secondAttribute="leading" constant="12" id="S2r-yK-pEm"/>
+                                    <constraint firstAttribute="bottom" secondItem="SK4-fp-54C" secondAttribute="bottom" constant="12" id="kGy-Lk-wy5"/>
+                                    <constraint firstItem="SK4-fp-54C" firstAttribute="top" secondItem="mWa-PQ-YqN" secondAttribute="top" constant="12" id="uFB-5d-Syn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mWa-PQ-YqN" firstAttribute="leading" secondItem="BJb-Cb-xcj" secondAttribute="leading" constant="20" id="2Nu-PI-H3j"/>
+                            <constraint firstAttribute="trailing" secondItem="mWa-PQ-YqN" secondAttribute="trailing" constant="20" id="7ye-P1-cpD"/>
+                            <constraint firstItem="mWa-PQ-YqN" firstAttribute="centerY" secondItem="BJb-Cb-xcj" secondAttribute="centerY" id="hqz-zR-NkH"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="systemThinMaterialDark"/>
+                </visualEffectView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-g0-1q2">
+                    <rect key="frame" x="32" y="433" width="350" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6ay-MJ-b9A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9hz-55-vsA"/>
+                <constraint firstItem="6ay-MJ-b9A" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="HRK-Na-cN1"/>
+                <constraint firstAttribute="bottom" secondItem="6ay-MJ-b9A" secondAttribute="bottom" id="k38-NZ-RYZ"/>
+                <constraint firstItem="6ay-MJ-b9A" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s0Z-cl-MkR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="115"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="appleWatch" width="213.33332824707031" height="109"/>
+    </resources>
+</document>

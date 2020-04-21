@@ -9,6 +9,7 @@ class ProductsVC: UIViewController {
     //Variables
     var selectedCategory: Category!
     var products = [Product]()
+
     //Otlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -62,6 +63,14 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ProductDetailsVC()
+        vc.product = products[indexPath.row]
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
 
 
